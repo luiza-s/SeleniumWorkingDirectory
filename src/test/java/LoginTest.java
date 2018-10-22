@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
 import static org.testng.Assert.assertTrue;
@@ -13,8 +14,8 @@ public class LoginTest {
 
     @BeforeMethod
             public void before() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\studentb\\BrowserDriver\\chromedriver_win32\\chromedriver.exe");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\studentb\\geckodriver.exe");
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
 

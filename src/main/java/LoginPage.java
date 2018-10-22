@@ -11,13 +11,13 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver){
         this.driver=driver;
-        driver.get("https//github.com/login");
+        driver.get("https://github.com/login");
     }
 
     public void loginWith(String login, String pass){
         driver.findElement(username).sendKeys(login);
         driver.findElement(password).sendKeys(pass);
-        driver.findElement(validationMessage).click();
+        driver.findElement(signIn).click();
     }
 
     public boolean isErrorMessageDisplayed(){
