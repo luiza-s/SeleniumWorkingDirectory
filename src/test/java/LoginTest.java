@@ -14,8 +14,12 @@ public class LoginTest {
 
     @BeforeMethod
             public void before() {
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\studentb\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "./src/main/resources/drivers/chromedriver-windows-32bit.exe");
+        driver = new ChromeDriver();
+
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\studentb\\geckodriver.exe");
+//        driver = new FirefoxDriver();
+
         driver.manage().window().maximize();
     }
 
@@ -27,7 +31,6 @@ public class LoginTest {
        LoginPage loginPage = new LoginPage (driver);
        loginPage.loginWith("adad","wewfwff");
 
-       assertTrue(loginPage.isErrorMessageDisplayed(),"test");
 
 
 

@@ -1,7 +1,11 @@
+import base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class LoginPage {
+import java.util.List;
+
+public class LoginPage extends BasePage {
 
     private WebDriver driver;
     By username = By.name("login");
@@ -10,17 +14,27 @@ public class LoginPage {
     By validationMessage=By.cssSelector("#js-flash-container .flash-error");
 
     public LoginPage(WebDriver driver){
-        this.driver=driver;
-        driver.get("https://github.com/login");
+        super (driver);
+        driver.get(getURL());
     }
+
+//    @Override
+//    public List<WebElement> findElements() {
+//        return super.findElements();
+ //   }
 
     public void loginWith(String login, String pass){
-        driver.findElement(username).sendKeys(login);
-        driver.findElement(password).sendKeys(pass);
-        driver.findElement(signIn).click();
+        type(username, login );
+        type(password, login );
+        click(signIn);
     }
 
-    public boolean isErrorMessageDisplayed(){
-        return driver.findElement(validationMessage).isDisplayed();
+    @Override
+    public boolean isDisplayed(By location) {
+        return super.isDisplayed(location);
+    }
+
+    public String getURL() {
+        return "https://github.com/login";
     }
 }
